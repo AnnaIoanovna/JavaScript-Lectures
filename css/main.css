@@ -1,5 +1,6 @@
 .mainTitle {
 	text-align:center;
+	position: relative;
 }
 .mainTitle .logo {
 	width:100px;
@@ -8,3 +9,24 @@
 .mainTitle .text {
 	vertical-align:middle;
 }
+.mainTitle:after {
+	content: attr(data-title);
+	position: absolute;
+	left: 50%;
+	top: 100%;
+	transform:translateX(-50%);
+	visibility: hidden;
+	opacity: 0;
+	transition:opacity 0.3s ease-in-out;
+	background: #efefef;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	font-size: 16px;
+	box-shadow: 3px 3px 5px rgba(0,0,0,.2);
+	padding: 5px 10px;
+	text-transform: capitalize;
+}
+.mainTitle:hover:after {
+	visibility: visible;
+	opacity: 1
+}	
